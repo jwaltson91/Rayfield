@@ -3311,7 +3311,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			local Slider = Elements.Template.Slider:Clone()
 			Slider.Name = SliderSettings.Name
 			Slider.Title.Text = SliderSettings.Name
-			Slider.Visible = true
+			Slider.Visible = SliderSettings.Visibility
 			Slider.Parent = TabPage
 
 			Slider.BackgroundTransparency = 1
@@ -3428,6 +3428,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 					end
 				end)
 			end)
+
+            function SliderSettings:SetVisibility(bool)
+                Slider.Visible = bool
+            end
 
 			function SliderSettings:Set(NewVal)
 				local NewVal = math.clamp(NewVal, SliderSettings.Range[1], SliderSettings.Range[2])
@@ -3996,4 +4000,3 @@ task.delay(4, function()
 end)
 
 return RayfieldLibrary
-
