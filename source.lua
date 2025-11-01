@@ -3009,7 +3009,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			local Keybind = Elements.Template.Keybind:Clone()
 			Keybind.Name = KeybindSettings.Name
 			Keybind.Title.Text = KeybindSettings.Name
-			Keybind.Visible = true
+			Keybind.Visible = KeybindSettings.Visibility
 			Keybind.Parent = TabPage
 
 			Keybind.BackgroundTransparency = 1
