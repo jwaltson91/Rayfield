@@ -3107,6 +3107,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 				TweenService:Create(Keybind.KeybindFrame, TweenInfo.new(0.55, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0, Keybind.KeybindFrame.KeybindBox.TextBounds.X + 24, 0, 30)}):Play()
 			end)
 
+			function KeybindSettings:SetVisibility(bool)
+                Keybind.Visible = bool
+            end
+
 			function KeybindSettings:Set(NewKeybind)
 				Keybind.KeybindFrame.KeybindBox.Text = tostring(NewKeybind)
 				KeybindSettings.CurrentKeybind = tostring(NewKeybind)
