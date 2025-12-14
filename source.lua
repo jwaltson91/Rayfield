@@ -3009,7 +3009,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			local Keybind = Elements.Template.Keybind:Clone()
 			Keybind.Name = KeybindSettings.Name
 			Keybind.Title.Text = KeybindSettings.Name
-			Keybind.Visible = true
+			Keybind.Visible = KeybindSettings.Visibility
 			Keybind.Parent = TabPage
 
 			Keybind.BackgroundTransparency = 1
@@ -3106,6 +3106,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Keybind.KeybindFrame.KeybindBox:GetPropertyChangedSignal("Text"):Connect(function()
 				TweenService:Create(Keybind.KeybindFrame, TweenInfo.new(0.55, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0, Keybind.KeybindFrame.KeybindBox.TextBounds.X + 24, 0, 30)}):Play()
 			end)
+
+			function KeybindSettings:SetVisibility(bool)
+                Keybind.Visible = bool
+            end
 
 			function KeybindSettings:Set(NewKeybind)
 				Keybind.KeybindFrame.KeybindBox.Text = tostring(NewKeybind)
